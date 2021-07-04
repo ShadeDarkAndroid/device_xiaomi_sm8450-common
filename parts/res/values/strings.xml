@@ -63,4 +63,9 @@
     <string name="custom_seekbar_default_value">by default</string>
     <string name="custom_seekbar_default_value_to_set">Default value: <xliff:g id="v">%s</xliff:g>\nLong tap to set</string>
     <string name="custom_seekbar_default_value_is_set">Default value is set</string>
+
+    <!-- High Touch Polling -->
+    <string name="htsr_title">Touch Responsiveness</string>
+    <string name="htsr_enable_title">Increase Touch Responsiveness</string>
+    <string name="htsr_enable_summary">Increases touch polling rate to decrease latency</string>
 </resources>

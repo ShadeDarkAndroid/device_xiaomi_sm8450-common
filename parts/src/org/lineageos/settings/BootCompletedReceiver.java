@@ -33,6 +33,7 @@ import android.view.Display;
 import android.view.Display.HdrCapabilities;
 
 import org.lineageos.settings.thermal.ThermalUtils;
+import org.lineageos.settings.touchsampling.TouchSamplingUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
     private static final boolean DEBUG = false;
@@ -68,6 +69,14 @@ public class BootCompletedReceiver extends BroadcastReceiver {
     private void handleBootCompleted(Context context) {
         if (DEBUG) Log.i(TAG, "Handling boot completed.");
         // Add additional boot-completed actions if needed
+        try {
+            // Restore user-specific touch sampling value.
+            // This is the correct placement as it typically reads from user settings.
+            TouchSamplingUtils.restoreSamplingValue(context);
+            if (DEBUG) Log.i(TAG, "Touch sampling value restored.");
+        } catch (Exception e) {
+            Log.e(TAG, "Error restoring touch sampling value", e);
+        }
     }
 
     private void startServices(Context context) {
